@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body <%= typeof data != 'undefined' && data.color ? 'style=background-color:' + data.color : '' %>>
+    <% if(typeof data != 'undefined' && data.color) { %>
+        <p>Hola <%= data.name %> elegiste el color: <%= data.color  %> , tu email es: <%= data.email  %> y tu edad es: <%= data.age  %> </p>
+    <% } %> 
+
+    <% if(typeof errors != 'undefined') { %>
+        <ul>
+            <% for(let i = 0; i < errors.length; i++){ %> 
+                <li style="color: red;"><%=errors[i].msg %> </li>
+            <% } %> 
+        </ul>
+    <% } %> 
+
+    <form action="/" method="POST">
+        <div>
+            <label for="">Ingresa tu nombe</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="">Selecciona un color</label>
+            <select name="color" id="">
+                <option value="">Elegí color</option>
+                <option value="red">Rojo</option>
+                <option value="white">Blanco</option>
+                <option value="blue">Azul</option>
+                <option value="yellow">Amarillo</option>
+                <option value="black">Negro</option>
+            </select>
+        </div>
+        <div>
+            <label for="">email</label>
+            <input type="text" name="email">
+        </div>
+        <div>
+            <label for="">Edad</label>
+            <input type="text" name="age">
+        </div>
+        <div>
+            <label for="">Recordar color</label>
+            <input type="checkbox" name="recordar_color">
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
